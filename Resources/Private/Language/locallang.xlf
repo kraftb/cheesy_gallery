@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="cheesy_gallery" date="2015-04-15T12:00:00+01:00">
+		<header/>
+		<body>
+			<trans-unit id="CheesyGallery_PluginName">
+				<source>Cheesy Gallery</source>
+			</trans-unit>
+			<trans-unit id="FileCollection_Description">
+				<source>Description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

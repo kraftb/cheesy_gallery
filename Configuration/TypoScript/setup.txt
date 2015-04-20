@@ -1,0 +1,33 @@
+
+plugin.tx_cheesygallery {
+	persistence {
+		storagePid.data = TSFE:id
+		classes {
+
+			ThinkopenAt\CheesyGallery\Domain\Model\FileCollection {
+				mapping {
+					tableName = sys_file_collection
+				}
+			}
+
+			ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection {
+				mapping {
+					tableName = sys_file
+				}
+			}
+
+			ThinkopenAt\CheesyGallery\Domain\Model\ImageFromStaticCollection {
+				mapping {
+					tableName = sys_file_reference
+				}
+			}
+
+		}
+	}
+	view {
+		templateRootPath = {$plugin.tx_cheesygallery.view.templateRootPath}
+		partialRootPath = {$plugin.tx_cheesygallery.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_cheesygallery.view.layoutRootPath}
+	}
+}
+
