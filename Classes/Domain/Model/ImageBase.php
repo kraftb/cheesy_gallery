@@ -33,6 +33,30 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ImageBase extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
+	/**
+	 * The last modification time of the file (unix timestamp)
+	 *
+	 * @var integer
+	 */
+	protected $lastChangeTime = 0;
+
+	/**
+	 * Retrieves the image (record) last modification time
+	 *
+	 * @return integer Unix timestamp of last modification
+	 */
+	public function getLastChangeTime() {
+		return $this->lastChangeTime;
+	}
+
+	/**
+	 * Sets the image (record) last modification time
+	 *
+	 * @return integer Unix timestamp of last modification
+	 */
+	public function setLastChangeTime($lastChangeTime) {
+		$this->lastChangeTime = $lastChangeTime;
+	}
 
 }
 

@@ -58,5 +58,30 @@ class ImageFromStaticCollectionRepository extends \TYPO3\CMS\Extbase\Persistence
 		return $query->execute();
 	}
 
+	/**
+	 * Finds the latest images from static collections
+	 *
+	 * @param integer $amount: The number of images to find
+	 * @return array<Integer, \ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection> An array with timestamps as key and images as values
+	 */
+	public function findLatest($amount) {
+		$query = $this->createQuery();
+		$query->matching($query->logicalAnd(
+			$query->equals('tablenames', 'sys_file_collection'),
+			$query->equals('fieldname', 'files')
+		));
+				
+		$query->setOrderings(array(
+			'lastChangeTime' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+		));
+		$query->setLimit($amount);
+		$matching = $query->execute();
+		$result = array();
+		foreach ($matching as $item) {
+			$result[$item->getLastChangeTime()][] = $item;
+		}
+		return $result;
+	}
+
 }
 

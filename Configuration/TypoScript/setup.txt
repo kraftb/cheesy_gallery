@@ -13,12 +13,18 @@ plugin.tx_cheesygallery {
 			ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection {
 				mapping {
 					tableName = sys_file
+					columns {
+						tstamp.mapOnProperty = lastChangeTime
+					}
 				}
 			}
 
 			ThinkopenAt\CheesyGallery\Domain\Model\ImageFromStaticCollection {
 				mapping {
 					tableName = sys_file_reference
+					columns {
+						tstamp.mapOnProperty = lastChangeTime
+					}
 				}
 			}
 
@@ -28,6 +34,12 @@ plugin.tx_cheesygallery {
 		templateRootPath = {$plugin.tx_cheesygallery.view.templateRootPath}
 		partialRootPath = {$plugin.tx_cheesygallery.view.partialRootPath}
 		layoutRootPath = {$plugin.tx_cheesygallery.view.layoutRootPath}
+	}
+	settings {
+		latest {
+			amount = 10
+			fromCollectionTypes = categories,folder,static
+		}
 	}
 }
 

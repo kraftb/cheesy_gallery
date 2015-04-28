@@ -83,5 +83,15 @@ class GalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->view->assign('image', $image);
 	}
 
+	public function latestAction() {
+		$amountLatest = intval($this->settings['latest']['amount']) ? : 5;
+		$collectionTypes = array();
+		$fromCollectionTypes = GeneralUtility::trimExplode(',', $this->settings['latest']['fromCollectionTypes'], TRUE);
+		foreach ($fromCollectionTypes as $collectionType) {
+			$collectionTypes[] = $this->imageFromCollectionRepository->getCollectionTypeByString($collectionType);
+		}
+		$this->view->assign('images', $this->imageFromCollectionRepository->findLatest($amountLatest, $collectionTypes));
+	}
+
 }
 

@@ -129,5 +129,70 @@ class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
 		}
 	}
 
+	/**
+	 * Finds the latest images in category based collections
+	 *
+	 * @param integer $amount: The number of images to find
+	 * @return \ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection
+	 */
+	public function findLatestInCategoryCollections($amount) {
+		// TODO
+		return array();
+	}
+
+	/**
+	 * Finds the latest images in folder based collections
+	 *
+	 * @param integer $amount: The number of images to find
+	 * @return \ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection
+	 */
+	public function findLatestInFolderCollections($amount) {
+		// TODO
+		return array();
+	}
+
+	/**
+	 * Finds the latest images in custom collections
+	 *
+	 * @param integer $amount: The number of images to find
+	 * @return \ThinkopenAt\CheesyGallery\Domain\Model\ImageFromCollection
+	 */
+	public function findLatestInCustomCollections($amount) {
+		// TODO
+		return array();
+	}
+
+	/**
+	 * Finds the latest images from all collections
+	 *
+	 * @param integer $amount: The number of images to find
+	 * @param integer $collectionTypes: The type of collections which to check for latest images
+	 * @return \ThinkopenAt\CheesyGallery\Domain\Model\ImageBase
+	 */
+	public function findLatest($amount, array $collectionTypes) {
+		$result = array();
+		foreach ($collectionTypes as $collectionType) {
+			if ($collectionType === static::TYPE_categories) {
+				$result = array_replace($result, $this->findLatestInCategoryCollections($amount));
+			}
+			if ($collectionType === static::TYPE_folder) {
+				$result = array_replace($result, $this->findLatestInFolderCollections($amount));
+			}
+			if ($collectionType === static::TYPE_custom) {
+				$result = array_replace($result, $this->findLatestInCustomCollections($amount));
+			}
+			if ($collectionType === static::TYPE_static) {
+				$result = array_replace($result, $this->staticCollectionRepository->findLatest($amount));
+			}
+		}
+		ksort($result, SORT_NUMERIC);
+		$final = array();
+		while ((count($final) < $amount) && count($result)) {
+			$timeBlock = array_shift($result);
+			$final = array_merge($final, $timeBlock);
+		}
+		return array_slice($final, 0, $amount);
+	}
+
 }
 

@@ -5,7 +5,7 @@ defined ('TYPO3_MODE') or die ('Access denied.');
 	'ThinkopenAt.CheesyGallery',
 	'Gallery',
 	array(
-		'Gallery' => 'index,list,detail',
+		'Gallery' => 'index,list,detail,latest',
 	)
 );
 

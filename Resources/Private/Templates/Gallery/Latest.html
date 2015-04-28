@@ -1,0 +1,9 @@
+<f:if condition="{images}">
+<div class="gallery-latest">
+	<ul>
+		<f:for each="{images}" as="image">
+			<li><a href="{f:uri.image(image: image.file, width: '1920m')}" title="{image.file.description}"><f:image image="{image.file}" width="120m" /></a></li>
+		</f:for>
+	</ul>
+</div>
+</f:if>
