@@ -33,6 +33,11 @@ use \ThinkopenAt\CheesyGallery\Domain\Model\FileCollection;
  */
 class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+	const TYPE_categories = 1;
+	const TYPE_folder = 2;
+	const TYPE_static = 4;
+	const TYPE_custom = 8;
+
 	/**
 	 * The TYPO3 core file collection repository
 	 *
@@ -55,6 +60,30 @@ class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
 		$querySettings->setRespectStoragePage(FALSE);
 //		$querySettings->setRespectSysLanguage(FALSE);
 		$this->setDefaultQuerySettings($querySettings);
+	}
+
+	/**
+	 * Returns the appropriate class constant for the passed collection type string
+	 *
+	 * @param string $collectionType: One of "categories", "folder", "static" or "custom"
+	 */
+	public function getCollectionTypeByString($collectionType) {
+		switch ($collectionType) {
+			case 'categories':
+				return static::TYPE_categories;
+
+			case 'folder':
+				return static::TYPE_folder;
+
+			case 'static':
+				return static::TYPE_static;
+
+			case 'custom':
+				return static::TYPE_custom;
+
+			default:
+				throw new \Exception('Invalid collection type "' . $collectionType . '"!', 1429562417);
+		}
 	}
 
 	public function findByCollection(FileCollection $collection) {
