@@ -73,14 +73,14 @@ class GalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 				'images' => $this->imageFromCollectionRepository->findByCollection($collection),
 			)
 		);
-		$this->assign('collections', $collections);
+		$this->view->assign('collections', $collections);
 	}
 
 	public function detailAction(\TYPO3\CMS\Core\Resource\AbstractFile $image) {
 		if ($image->getType !== \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_IMAGE) {
 			throw new \Exception('Detail action called for a non-image file!', 1429073545);
 		}
-		$this->assign('image', $image);
+		$this->view->assign('image', $image);
 	}
 
 }
