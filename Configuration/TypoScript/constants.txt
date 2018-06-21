@@ -2,13 +2,13 @@
 plugin.tx_cheesygallery {
 	view {
 		# cat=plugin.tx_cheesygallery/file; type=string; label=Path to template root (BE)
-		templateRootPaths = EXT:cheesy_gallery/Resources/Private/Templates/
+		templateRootPath = EXT:cheesy_gallery/Resources/Private/Templates/
 
 		# cat=plugin.tx_cheesygallery/file; type=string; label=Path to template partials (BE)
-		partialRootPaths = EXT:cheesy_gallery/Resources/Private/Partials/
+		partialRootPath = EXT:cheesy_gallery/Resources/Private/Partials/
 
 		# cat=plugin.tx_cheesygallery/file; type=string; label=Path to template layouts (BE)
-		layoutRootPaths = EXT:cheesy_gallery/Resources/Private/Layouts/
+		layoutRootPath = EXT:cheesy_gallery/Resources/Private/Layouts/
 	}
 
 	persistence {

@@ -4,7 +4,7 @@ namespace ThinkopenAt\CheesyGallery\Domain\Repository;
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2015 Bernhard Kraft (kraftb@think-open.at)
+*  (c) 2015-2018 Bernhard Kraft (kraftb@think-open.at)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is

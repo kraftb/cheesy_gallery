@@ -15,10 +15,10 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Bernhard Kraft',
 	'author_email' => 'kraftb@think-open.at',
 	'author_company' => 'think-open.at GmbH',
-	'version' => '0.0.1',
+	'version' => '0.1.0',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.2.0-7.0.99',
+			'typo3' => '6.2.0-9.2.99',
 		),
 		'conflicts' => array(),
 		'suggests' => array(

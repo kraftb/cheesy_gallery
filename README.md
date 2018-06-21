@@ -5,7 +5,7 @@ This extension is a really simple gallery without bells and whistles. It is a me
 
 Simply install the extension via the extension manager and insert the cheesy gallery plugin on a page.
 
-Then include the included static TypoScript template.
+Then include the static TypoScript template shipped along with the extension.
 
 Now create a file collection on the page with the plugin. Choose type "static image" for the type of collection and add some images.
 
@@ -16,6 +16,8 @@ Currently only static collections are implemented. The other types (folder, cate
 Additional features for this gallery (except support for additional collection types) will get implemented as branches.
 
 Currently there are the following features/branches:
- * feature-latest: Allows to show a list of latest images in all branches
+ * feature-latest: Allows to show a list of latest images in all branches of the page tree.
+   This allows to add a "latest images box" to a sidebar or header/footer of a website.
 
  The aim of this extension is to keep it simple compared to other current galleries for TYPO3.
+
