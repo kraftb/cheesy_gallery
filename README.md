@@ -11,7 +11,7 @@ Now create a file collection on the page with the plugin. Choose type "static im
 
 The gallery will display the selected images in the frontend.
 
-Currently only static collections are implemented. The other types (folder, categories, custom) will echo an "TODO" message and exit.
+Currently only static and folder collections are implemented. The other types (categories, custom) will echo an "TODO" message and exit.
 
 Additional features for this gallery (except support for additional collection types) will get implemented as branches.
 
@@ -20,4 +20,9 @@ Currently there are the following features/branches:
    This allows to add a "latest images box" to a sidebar or header/footer of a website.
 
  The aim of this extension is to keep it simple compared to other current galleries for TYPO3.
+
+Changelog:
+ * 2018-06-21: Make the extension compatible to TYPO3 9.2.
+ * 2018-06-22: Implemented display of "folder" collections.
+ * 2018-06-22: Updated copyright messages.
 

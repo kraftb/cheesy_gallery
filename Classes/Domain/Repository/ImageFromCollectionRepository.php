@@ -49,7 +49,15 @@ class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
 	/**
 	 * The repository for static collections
 	 *
-	 * @var ThinkopenAt\CheesyGallery\Domain\Repository\ImageFromStaticCollectionRepository
+	 * @var \ThinkopenAt\CheesyGallery\Domain\Repository\ImageFromFolderCollectionRepository
+	 * @inject
+	 */
+	protected $folderCollectionRepository = NULL;
+
+	/**
+	 * The repository for static collections
+	 *
+	 * @var \ThinkopenAt\CheesyGallery\Domain\Repository\ImageFromStaticCollectionRepository
 	 * @inject
 	 */
 	protected $staticCollectionRepository = NULL;
@@ -92,7 +100,7 @@ class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
 				return $this->findByCategoryCollection($collection);
 
 			case 'folder':
-				return $this->findByFolderCollection($collection);
+				return $this->folderCollectionRepository->findByFolderCollection($collection);
 
 			case 'static':
 				return $this->staticCollectionRepository->findByStaticCollection($collection);
@@ -104,14 +112,6 @@ class ImageFromCollectionRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
 
 	public function findByCategoryCollection(FileCollection $collection) {
 		echo "Category\n";
-		var_dump($collection);
-		exit();
-//		$query = $this->createQuery();
-//		$query->matching();
-	}
-
-	public function findByFolderCollection(FileCollection $collection) {
-		echo "Folder\n";
 		var_dump($collection);
 		exit();
 //		$query = $this->createQuery();

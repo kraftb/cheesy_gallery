@@ -4,7 +4,7 @@ namespace ThinkopenAt\CheesyGallery\Domain\Model;
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2015 Bernhard Kraft (kraftb@think-open.at)
+*  (c) 2015-2018 Bernhard Kraft (kraftb@think-open.at)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -52,6 +52,28 @@ class FileCollection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $description = '';
+
+	/**
+	 * The storage of this collection
+	 *
+	 * @var integer
+	 */
+	protected $storage = 0;
+
+	/**
+	 * The folder of this collection
+	 *
+	 * @var string
+	 */
+	protected $folder = '';
+
+	/**
+	 * Whether files should get retrieved recursivels from this folder collection
+	 *
+	 * @var boolean
+	 */
+	protected $recursive = false;
+
 
 	/**
 	 * Returns the type of the file collection
@@ -109,6 +131,63 @@ class FileCollection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setDescription($description) {
 		$this->description = $description;
 	}
+
+    /**
+     * Returns the storage of this collection
+     *
+     * @return integer The storage of this collection
+     */
+    public function getStorage() {
+        return $this->storage;
+    }
+
+    /**
+     * Sets the storage of this collection
+     *
+     * @param integer $storage: The UID of the storage record of this collection
+     * @return void
+     */
+    public function setStorage($storage) {
+        $this->storage = $storage;
+    }
+
+    /**
+     * Returns the folder of this collection
+     *
+     * @return string The folder of this collection
+     */
+    public function getFolder() {
+        return $this->folder;
+    }
+
+    /**
+     * Sets the folder of this collection
+     *
+     * @param string $folder: The folder of this collection
+     * @return void
+     */
+    public function setFolder($folder) {
+        $this->folder = $folder;
+    }
+
+    /**
+     * Returns whether files should get retrieved recursivels from this folder collection
+     *
+     * @return boolean Whether files should get retrieved recursivels from this folder collection
+     */
+    public function getRecursive() {
+        return $this->recursive;
+    }
+
+    /**
+     * Sets whether files should get retrieved recursivels from this folder collection
+     *
+     * @param boolean $recursive: Whether files should get retrieved recursivels from this folder collection
+     * @return void
+     */
+    public function setRecursive($recursive) {
+        $this->recursive = $recursive;
+    }
 
 }
 
